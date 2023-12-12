@@ -1,0 +1,32 @@
+.section__container {
+  margin: 0;
+  padding: 110px 70px;
+  outline: 1px solid green;
+}
+
+.section__title {
+  margin: 0;
+  padding: 0 0 23px;
+  font-size: 22px;
+  letter-spacing: -0.88px;
+  font-weight: 400;
+  line-height: normal;
+  border-bottom: 1px solid #000;
+}
+
+@media (max-width: 1279px) {
+  .section__container {
+    padding: 90px 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section__container {
+    padding: 70px 14px;
+  }
+  .section__title {
+    padding: 0 0 28px;
+    font-size: 18px;
+    letter-spacing: -0.72px;
+  }
+}

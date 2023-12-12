@@ -1,0 +1,38 @@
+.header-profile {
+  display: flex;
+  flex-direction: row;
+  gap: 17px;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-profile__name {
+  text-decoration: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: #000;
+}
+
+.header-profile__name_color_white {
+  color: #FFF;
+}
+
+.header-profile__name:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+.header-profile__icon {
+  width: 26px;
+  height: 30px;
+  border-radius: 4px;
+  background: url(../../images/profile-icon.svg) no-repeat center;
+  background-color: #F9F9F9;
+}
+
+.header-profile__icon_color_green {
+  background-color: #2BE080;
+}
+

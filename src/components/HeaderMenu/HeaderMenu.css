@@ -1,0 +1,27 @@
+.header__menu-icon {
+  display: block;
+}
+
+.header__menu-icon:hover {
+  cursor: pointer;
+  opacity: .8;
+}
+
+@media(max-width: 1279px) {
+  .header__menu-icon {
+    height: 44px;
+    width: 44px;
+    background: transparent url(../../images/header-menu-icon_44x44.svg) no-repeat center;
+    background-size: 44px 44px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header__menu-icon {
+    height: 40px;
+    width: 43px;
+    background: transparent url(../../images/header-menu-icon_40x43.svg) no-repeat center;
+    background-size: 40px 43px;
+  }
+
+}

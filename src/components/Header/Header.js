@@ -20,9 +20,9 @@ function Header( {onMenuClick} ) {
   const isMainPage = location.pathname === '/'
 
   const headerAuth = currentUser?.email ? <></> : <HeaderAuth/>
-  const navTab = currentUser?.email && screenMaxWidth >= 1280 ? <NavTab/> : <></>
-  const headerProfile = currentUser?.email && screenMaxWidth >= 1280 && isMainPage ? <HeaderProfile/> : <></>
-  const headerMenu = currentUser?.email && screenMaxWidth < 1280 ? <HeaderMenu onMenuClick={onMenuClick}/> : <></>
+  const navTab = currentUser?.email && screenMaxWidth > 768 ? <NavTab/> : <></>
+  const headerProfile = currentUser?.email && screenMaxWidth > 768 && isMainPage ? <HeaderProfile/> : <></>
+  const headerMenu = currentUser?.email && screenMaxWidth <= 768 ? <HeaderMenu onMenuClick={onMenuClick}/> : <></>
 
   return (
     <header className={headerClass}>

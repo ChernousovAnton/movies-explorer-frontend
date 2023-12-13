@@ -46,11 +46,9 @@ function App() {
 
   React.useEffect(() => {
     function getScreenMaxWidth () {
-      if (window.innerWidth <= 767 && screenMaxWidth !== 767) {
-        setScreenMaxWidth(767);
-      } else if (window.innerWidth <= 1279 && screenMaxWidth !== 1279) {
-        setScreenMaxWidth(1279);
-      } else if (window.innerWidth >= 1280 && screenMaxWidth !== 1280) {
+      if (window.innerWidth <= 768 && screenMaxWidth !== 768) {
+        setScreenMaxWidth(768);
+      } else if (window.innerWidth > 768 && screenMaxWidth !== 1280) {
         setScreenMaxWidth(1280);
       }
     }

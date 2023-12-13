@@ -24,6 +24,10 @@ input[type="text"] {
   font-feature-settings: 'clig' off, 'liga' off;
 }
 
+input[type="text"]:focus {
+  border-bottom: 1px solid #3456F3;
+}
+
 textarea:focus, input:focus{
   outline: none;
 }

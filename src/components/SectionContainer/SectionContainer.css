@@ -1,10 +1,9 @@
-.section__container {
+.section-container {
   margin: 0;
   padding: 110px 70px;
-  outline: 1px solid green;
 }
 
-.section__title {
+.section-container__title {
   margin: 0;
   padding: 0 0 23px;
   font-size: 22px;
@@ -15,16 +14,16 @@
 }
 
 @media (max-width: 1279px) {
-  .section__container {
+  .section-container {
     padding: 90px 50px;
   }
 }
 
 @media (max-width: 767px) {
-  .section__container {
+  .section-container {
     padding: 70px 14px;
   }
-  .section__title {
+  .section-container__title {
     padding: 0 0 28px;
     font-size: 18px;
     letter-spacing: -0.72px;

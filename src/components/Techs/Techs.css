@@ -2,13 +2,12 @@
   background-color: #F5F5F5;
 }
 
-.techs-section__container {
+.techs__section {
   margin: 0;
   padding: 100px 70px;
-  outline: 1px solid green;
 }
 
-.techs-section__title {
+.techs__section-title {
   margin: 0;
   padding: 0 0 23px;
   font-size: 22px;
@@ -44,7 +43,7 @@
   letter-spacing: -0.56px;
 }
 
-.techs_list {
+.techs__list {
   margin: 100px 0 0;
   padding: 0;
   list-style: none;
@@ -54,7 +53,7 @@
   flex-wrap: wrap;
 }
 
-.techs_item {
+.techs__item {
   min-width: 90px;
   min-height: 60px;
   border-radius: 10px;
@@ -68,7 +67,7 @@
 
 @media (max-width: 1279px) {
 
-  .techs-section__container {
+  .techs__section {
     padding: 90px 50px;
   }
   .techs__title {
@@ -82,11 +81,11 @@
     letter-spacing: -0.48px;
   }
 
-  .techs_list {
+  .techs__list {
     margin: 84px 0 0;
   }
 
-  .techs_item {
+  .techs__item {
     min-width: 84px;
     min-height: 57px;
     font-size: 12px;
@@ -100,10 +99,10 @@
     background-color: #FFF;
   }
 
-  .techs-section__container {
+  .techs__section {
     padding: 70px 14px;
   }
-  .techs-section__title {
+  .techs__section-title {
     padding: 0 0 28px;
     font-size: 18px;
     letter-spacing: -0.72px;
@@ -123,7 +122,7 @@
     letter-spacing: -0.44px;
   }
 
-  .techs_list {
+  .techs__list {
     margin: 50px 53px 0;
   }
 

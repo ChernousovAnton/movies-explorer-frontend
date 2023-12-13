@@ -7,7 +7,7 @@
   opacity: .8;
 }
 
-@media(max-width: 1279px) {
+@media(max-width: 768px) {
   .header__menu-icon {
     height: 44px;
     width: 44px;

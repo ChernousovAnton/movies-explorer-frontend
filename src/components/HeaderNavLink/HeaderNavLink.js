@@ -7,7 +7,7 @@ function HeaderNavLink({ text, path }) {
   const location = useLocation();
   const maxScreenWidth = React.useContext(ScreenMaxWidthContext);
   const navtabLinkColorClass = `${
-    location.pathname === "/" && maxScreenWidth >= 1280
+    location.pathname === "/" && maxScreenWidth > 768
       ? "navlink_color_white"
       : ""
   }`;

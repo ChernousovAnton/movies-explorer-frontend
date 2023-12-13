@@ -9,13 +9,13 @@ function HeaderProfile() {
   const currentUser = React.useContext(CurrentUserContext);
   const maxScreenWidth = React.useContext(ScreenMaxWidthContext);
   const headerProfileNameClass = `header-profile__name ${
-    location.pathname === "/" && maxScreenWidth >= 1280
+    location.pathname === "/" && maxScreenWidth > 768
       ? "header-profile__name_color_white"
       : ""
   }`;
 
   const headerProfileIconClass = `header-profile__icon ${
-    location.pathname === "/" && maxScreenWidth >= 1280
+    location.pathname === "/" && maxScreenWidth > 768
       ? "header-profile__icon_color_green"
       : ""
   }`;

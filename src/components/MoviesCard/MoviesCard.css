@@ -9,8 +9,8 @@
 .movies-card__container {
   margin: 14px;
   display: grid;
-  grid-template-rows: repeat(2, fit-content);
-  grid-template-columns: repeat(2, fit-content);
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(2, fit-content(210px));
   justify-content: space-between;
   
 }

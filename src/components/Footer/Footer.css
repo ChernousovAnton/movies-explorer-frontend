@@ -32,6 +32,7 @@
   grid-template-columns: min-content min-content;
   text-align: center;
   width: 100%;
+  margin-top: 15px;
 }
 
 .footer__copy {
@@ -74,6 +75,10 @@
   .footer__title {
     margin-top: 0;
   }
+
+  .footer__baseband {
+    margin-top: 0px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -94,6 +99,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: min-content min-content;
     gap: 14px;
+    margin-top: 0px;
   }
 
   .footer__links {

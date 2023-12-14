@@ -17,11 +17,9 @@ function Header( {onMenuClick} ) {
   const currentUser = React.useContext(CurrentUserContext);
   const screenMaxWidth = React.useContext(ScreenMaxWidthContext);
 
-  const isMainPage = location.pathname === '/'
-
   const headerAuth = currentUser?.email ? <></> : <HeaderAuth/>
   const navTab = currentUser?.email && screenMaxWidth > 768 ? <NavTab/> : <></>
-  const headerProfile = currentUser?.email && screenMaxWidth > 768 && isMainPage ? <HeaderProfile/> : <></>
+  const headerProfile = currentUser?.email && screenMaxWidth > 768 ? <HeaderProfile/> : <></>
   const headerMenu = currentUser?.email && screenMaxWidth <= 768 ? <HeaderMenu onMenuClick={onMenuClick}/> : <></>
 
   return (

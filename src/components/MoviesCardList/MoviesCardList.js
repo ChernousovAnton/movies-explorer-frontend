@@ -8,17 +8,17 @@ function MoviesCardList() {
   const location = useLocation();
   const isSavedMoviesPath = location.pathname === '/saved-movies' ? true : false
   let data = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 1; i < 5; i++) {
     data.push({
-      id: i,
+      _id: i,
       title: "33 слова о дизайнере авпрваправпрап варп вапр пвар ",
       duration: "1ч 47м",
       image: image,
     });
   }
   return (
-    <div className="movies-card-list__container">
-      <ul className="movies-card-list">
+    <div className="movies-card-list">
+      <ul className="movies-card-list__container">
         {data.map(movie => (
           <MoviesCard
             key={movie._id}

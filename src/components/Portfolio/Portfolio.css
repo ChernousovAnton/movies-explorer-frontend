@@ -1,0 +1,45 @@
+.portfolio {
+  margin: 0 70px 110px;
+}
+
+.portfolio__title {
+  margin: 0;
+  padding: 0;
+  color: #A0A0A0;
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 18px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.portfolio__container {
+  margin: 0;
+  padding:0;
+  margin-top: 21px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 1279px) {
+  .portfolio {
+    margin: 0 50px 150px;
+  }
+  .portfolio__container {
+    margin-top: 30px;
+  }
+}
+
+@media (max-width: 767px) {
+  .portfolio {
+    margin: 0 14px 50px;
+  }
+  .portfolio__title {
+    font-size: 14px;
+  }
+
+  .portfolio__container {
+    margin-top: 22px;
+  }
+
+}

@@ -1,0 +1,52 @@
+.header-auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+.header-auth__signup {
+  font-size: 12px;
+}
+
+.header-auth__signin {
+  padding: 8px 20px;
+  border-radius: 3px;
+  background: #2BE080;
+  color: #000;
+  font-size: 12px;
+}
+
+.header-auth__link {
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.header-auth__link_color_white{
+  color: #FFF;
+}
+
+.header-auth__link_color_black{
+  color: #000;
+}
+
+.header-auth__link:hover {
+  opacity: .8;
+}
+
+@media (max-width: 767px) {
+
+  .header-auth {
+    gap: 14px;
+  }
+
+  .header-auth__signup {
+    font-size: 10px;
+  }
+
+  .header-auth__signin {
+    padding: 5px 12px;
+    font-size: 10px;
+  }
+}

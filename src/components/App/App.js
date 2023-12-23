@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import HeaderFooterLayout from "../HeaderFooterLayout/HeaderFooterLayout";
 import HeaderLayout from "../HeaderLayout/HeaderLayout";
 import Main from "../Main/Main";
@@ -23,8 +23,6 @@ function App() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [serverError, setServerError] = React.useState("");
   const [serverResponse, setServerResponse] = React.useState(null);
-
-  const navigate = useNavigate();
 
   const token = getToken();
 

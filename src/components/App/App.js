@@ -58,19 +58,21 @@ function App() {
   }, [isMenuOpen]);
 
   React.useEffect(() => {
-    function getScreenMaxWidth() {
-      if (window.innerWidth <= 480 && screenMaxWidth !== 480) {
-        setScreenMaxWidth(480);
-      } else if (window.innerWidth <= 768 && screenMaxWidth !== 768) {
-        setScreenMaxWidth(768);
-      } else if (window.innerWidth <= 1279 && screenMaxWidth !== 1279) {
-        setScreenMaxWidth(1279);
-      } else if (window.innerWidth >= 1280 && screenMaxWidth !== 1280) {
-        setScreenMaxWidth(1280);
-      }
-    }
-    window.addEventListener("resize", getScreenMaxWidth, false);
+    window.addEventListener('resize', getScreenMaxWidth);
+    return () => window.removeEventListener('resize', getScreenMaxWidth);
   });
+
+  function getScreenMaxWidth() {
+    if (window.innerWidth <= 480 && screenMaxWidth !== 480) {
+      setScreenMaxWidth(480);
+    } else if (window.innerWidth <= 768 && screenMaxWidth !== 768) {
+      setScreenMaxWidth(768);
+    } else if (window.innerWidth <= 1279 && screenMaxWidth !== 1279) {
+      setScreenMaxWidth(1279);
+    } else if (window.innerWidth >= 1280 && screenMaxWidth !== 1280) {
+      setScreenMaxWidth(1280);
+    }
+  }
 
   function closeMenu() {
     setIsMenuOpen(false);
@@ -102,10 +104,13 @@ function App() {
       .register(dataUser)
       .then(() => {
         setCurrentUser(dataUser);
-        navigate("/signin", { replace: true });
+        setServerError("");
+        handleLogin(dataUser);
       })
       .catch((err) => {
         console.error(err);
+        setServerError(err?.message);
+        setTimeout(() => setServerError(null), 3000);
       });
   }
 

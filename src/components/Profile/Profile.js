@@ -5,26 +5,23 @@ import useFormAndValidation from "../../hooks/useFormAndValidation";
 
 function Profile({ handleSignOut, serverResponse, handleProfileChange }) {
   const currentUser = React.useContext(CurrentUserContext);
-  const {
-    values,
-    handleChange,
-    errors,
-    isValid,
-    setValues,
-    setIsValid,
-    setErrors,
-  } = useFormAndValidation();
+  const [userData, setUserData] = React.useState({
+    name: currentUser?.name ?? '',
+    email: currentUser.email,
+  })
+
+  const {values, handleChange, errors, isValid, setValues, setIsValid, setErrors,} = useFormAndValidation();
 
   React.useEffect(() => {
     setIsValid(false);
     setErrors({});
-    setValues({name: currentUser.name, email: currentUser.email});
-  }, [currentUser]);
+    setValues({name: userData.name, email: userData.email});
+  }, []);
 
   React.useEffect(() => {
     if (
-      values?.name === currentUser.name &&
-      values?.email === currentUser.email
+      values?.name === userData.name &&
+      values?.email === userData.email
     ) {
       setIsValid(false);
     }
@@ -36,21 +33,24 @@ function Profile({ handleSignOut, serverResponse, handleProfileChange }) {
 
   function handleSubmit(evt) {
     evt.preventDefault();
-    handleProfileChange(values);
-    setIsValid(false);
+    if (isValid) {
+      handleProfileChange(values);
+      setIsValid(false);
+      setUserData({name: values.name, email: values.email})
+    }
   }
 
   return (
     <div className="profile">
       <h1 className="profile__title">
-        Привет, {currentUser?.name || "Пользователь"}!
+        Привет, {userData.name}!
       </h1>
       <form className="profile__form" onSubmit={handleSubmit} noValidate>
         <div className="profile__input-container">
           <label className="profile__lable">Имя</label>
           <input
             className="profile__input"
-            defaultValue={currentUser?.name}
+            defaultValue={userData.name}
             type="text"
             name="name"
             minLength="2"
@@ -63,7 +63,7 @@ function Profile({ handleSignOut, serverResponse, handleProfileChange }) {
           <label className="profile__lable">E-mail</label>
           <input
             className="profile__input"
-            defaultValue={currentUser?.email}
+            defaultValue={userData.email}
             type="email"
             name="email"
             onChange={handleChange}

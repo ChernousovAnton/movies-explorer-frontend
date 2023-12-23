@@ -53,6 +53,7 @@
 }
 
 .profile__submit {
+  opacity: .5;
   margin: 205px 0 0;
   border: 0;
   background: none;
@@ -62,9 +63,28 @@
   font-weight: 400;
 }
 
-.profile__submit:hover {
+.profile__submit_active {
+  opacity: 1;
+}
+
+.profile__submit_active:hover {
   cursor: pointer;
   opacity: .8;
+}
+
+.profile__server-response {
+  text-align: center;
+  display: block;
+  color: rgb(19, 83, 3);
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.profile__input-error {
+  display: block;
+  margin-top: 10px;
+  color: #EE3465;
+  font-size: 10px;
 }
 
 .profile__logout {

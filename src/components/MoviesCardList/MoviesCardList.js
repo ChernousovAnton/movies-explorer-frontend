@@ -1,36 +1,36 @@
-import MoviesCard from "../MoviesCard/MoviesCard";
-import image from "../../images/test.png";
 import "./MoviesCardList.css";
-import { useLocation } from "react-router-dom";
+import React, { useContext } from "react";
+import MovieCard from "../MovieCard/MovieCard";
+import { ScreenMaxWidthContext } from "../../contexts/ScreenMaxWidthContext";
+import { getInitialCardCount, getMoreCardCount } from "../../utils/utils";
+import MoviesMoreBtn from "../MoviesMoreBtn/MoviesMoreBtn";
 
-function MoviesCardList() {
 
-  const location = useLocation();
-  const isSavedMoviesPath = location.pathname === '/saved-movies' ? true : false
-  let data = [];
-  for (let i = 1; i < 5; i++) {
-    data.push({
-      _id: i,
-      title: "33 слова о дизайнере авпрваправпрап варп вапр пвар ",
-      duration: "1ч 47м",
-      image: image,
-    });
+function MoviesCardList({ movieCards, onSaveClick, onDeleteClick, searchMsg }) {
+
+  const screenMaxWidth = useContext(ScreenMaxWidthContext);
+  const [shownMovieCardsCount, setShownMovieCardsCount] = React.useState(getInitialCardCount(screenMaxWidth));
+
+  function handleMoreBtnClick() {
+    setShownMovieCardsCount(shownMovieCardsCount + getMoreCardCount(screenMaxWidth))
   }
+
   return (
     <div className="movies-card-list">
+      <span className="movies-card-list__msg">{searchMsg}</span>
       <ul className="movies-card-list__container">
-        {data.map(movie => (
-          <MoviesCard
-            key={movie._id}
-            title={movie.title}
-            duration={movie.duration}
-            image={movie.image}
-            isSavedMoviesPath={isSavedMoviesPath}
+        {movieCards.slice(0, shownMovieCardsCount).map((movie) => (
+          <MovieCard
+            key={movie.id ?? movie._id}
+            movie={movie}
+            onSaveClick={onSaveClick}
+            onDeleteClick={onDeleteClick}
           />
         ))}
       </ul>
-      {!isSavedMoviesPath && <button className="movies-card-list__more">Ещё</button>
-      }
+      {movieCards.length > shownMovieCardsCount ? (
+        <MoviesMoreBtn onClick={handleMoreBtnClick} />
+      ) : null}
     </div>
   );
 }

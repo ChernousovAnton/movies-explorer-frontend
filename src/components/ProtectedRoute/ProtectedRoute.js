@@ -7,7 +7,7 @@ const ProtectedRoute = ({ onlyUnAuth, children }) => {
 
   const location = useLocation();
   if (onlyUnAuth && currentUser?.email) {
-    const from = location.state?.from || { pathname: "/" };
+    const from = location.state?.from || { pathname: "/movies" };
     return (
       <Navigate to={from} replace />
     )

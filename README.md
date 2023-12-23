@@ -1,3 +1,9 @@
 figma - light-5
 
-для входа введите любые email/password
+site link
+
+https://movies77.nomoredomainsmonster.ru/
+
+pull request link
+
+https://github.com/ChernousovAnton/movies-explorer-frontend/pull/2

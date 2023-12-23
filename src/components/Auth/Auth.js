@@ -2,21 +2,22 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Logo from "../Logo/Logo";
 import "./Auth.css";
+import useFormAndValidation from '../../hooks/useFormAndValidation';
 
-function Auth({ onSubmit, type }) {
-  const [userData, setUserData] = React.useState("");
+function Auth({ onSubmit, type, serverError}) {
 
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setUserData({
-      ...userData,
-      [name]: value,
-    });
-  }
+  const {values, handleChange, errors, isValid, resetForm, setValues, setIsValid, setErrors} = useFormAndValidation();
+
+  React.useEffect(() => {
+    setIsValid(false);
+  }, [])
 
   function handleSubmit(e) {
     e.preventDefault();
-    onSubmit(userData);
+    if (isValid) {
+      onSubmit(values);
+      setIsValid(false);
+    }
   }
 
   return (
@@ -25,18 +26,20 @@ function Auth({ onSubmit, type }) {
       <h1 className="auth__title">
         {type === "register" ? "Добро пожаловать!" : "Рады видеть!"}
       </h1>
-      <form className="auth__form" onSubmit={handleSubmit}>
+      <form className="auth__form" onSubmit={handleSubmit} noValidate>
         <fieldset className="form__fieldset">
           {type === "register" ? (
             <>
               <label className="auth__label">Имя</label>
               <input
                 className="auth__input"
-                type="name"
+                type="text"
                 name="name"
-                value={userData.name || ""}
                 onChange={handleChange}
+                minLength="2"
+                required
               />
+              <span className="auth__input-error">{errors.name}</span>
             </>
           ) : (
             ""
@@ -46,21 +49,24 @@ function Auth({ onSubmit, type }) {
             className="auth__input"
             type="email"
             name="email"
-            value={userData.email || ""}
             onChange={handleChange}
+            required
           />
+          <span className="auth__input-error">{errors.email}</span>
           <label className="auth__label">Пароль</label>
           <input
             className="auth__input"
             type="password"
             name="password"
-            value={userData.password || ""}
             onChange={handleChange}
+            minLength="2"
+            required
           />
-          <span className="auth__input-error">{"some error"}</span>
+          <span className="auth__input-error">{errors.password}</span>
+          
         </fieldset>
-
-        <button className="auth__submit" type="submit">
+        <span className="auth__input-error">{serverError}</span>
+        <button className={`auth__submit ${isValid ? "auth__submit_active" : ""}` } type="submit">
           {type === "register" ? "Зарегистрироваться" : "Войти"}
         </button>
         <p className="auth__text">

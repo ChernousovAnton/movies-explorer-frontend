@@ -42,8 +42,8 @@ export class MainApi {
     return this._apiRequest(`${this._baseUrl}/movies/${id}`, 'DELETE');
   }
 
-  register({email, password}) {
-    const body = {email, password};
+  register({email, password, name}) {
+    const body = {email, password, name};
     return this._apiRequest(`${this._baseUrl}/signup`, 'POST', body);
   }
 

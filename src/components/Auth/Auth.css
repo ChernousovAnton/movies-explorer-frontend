@@ -52,6 +52,7 @@
 }
 
 .auth__submit {
+  opacity: .4;
   width: 100%;
   margin: 159px 0 0;
   padding: 13px 0 15px;
@@ -64,6 +65,14 @@
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
+}
+
+.auth__submit_active {
+  opacity: 1;
+}
+.auth__submit_active:hover {
+  opacity: .8;
+  cursor: pointer;
 }
 
 .auth__text {
